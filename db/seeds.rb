@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts("Seeding Users...")
-User.create!(username: "london_rosemary", email: "london.rosemary@gmail.com")
+User.create!(username: "london_rosemary", email: "london.rosemary@gmail.com", password: "squilliam123")
 puts("Seeding Pets...")
 Pet.create!(name:"King K. Rool", happiness: 65, health: 100, hunger: 60, thirst: 60, boredom: 40, user_id: 1)
 puts("Seeding complete!")
