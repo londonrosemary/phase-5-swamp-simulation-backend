@@ -8,5 +8,5 @@
 puts("Seeding Users...")
 User.create!(username: "london_rosemary", email: "london.rosemary@gmail.com", password: "squilliam123")
 puts("Seeding Pets...")
-Pet.create!(name:"King K. Rool", happiness: 65, health: 100, hunger: 60, thirst: 60, boredom: 40, user_id: 1)
+Pet.create!(name:"King K. Rool", happiness: 65, health: 100, hunger: 60, thirst: 60, boredom: 40, user_id: 2)
 puts("Seeding complete!")
