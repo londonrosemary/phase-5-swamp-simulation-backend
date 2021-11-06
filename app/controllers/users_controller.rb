@@ -6,11 +6,8 @@ class UsersController < ApplicationController
         render json: @users.as_json(except: :pets)
     end
     def show
-        if current_user
-            render json: current_user, status: :ok
-        else
-            render json: { error: 'No active session' }, status: :unauthorized
-        end
+        @user = User.find(params[:id])
+        render json: @user, status: 200
     end
 
     def create
