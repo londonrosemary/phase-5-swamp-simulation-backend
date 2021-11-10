@@ -16,6 +16,19 @@ class PetsController < ApplicationController
         render json: @pet, status: 200
     end
 
+    def update
+        @pet = Pet.find(params[:id])
+        if @pet
+            if @pet.update(update_params)
+                render json: @pet, status: 200
+            else 
+                render json: {error: "Validation errors"}, status: 422
+            end
+        else
+            render json: {error: "Pet not found"}, status: 404
+        end
+    end
+
     def destroy
         @pet = Pet.find_by(id: params[:id])
         @pet.destroy
@@ -29,5 +42,9 @@ class PetsController < ApplicationController
 
     def pet_params
         params.permit(:name, :happiness, :health, :hunger, :thirst, :boredom, :user_id, :image_url)
+    end
+
+    def update_params
+        params.permit(:name, :happiness, :health, :hunger, :thirst, :boredom)
     end
 end
