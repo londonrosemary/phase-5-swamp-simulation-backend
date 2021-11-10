@@ -20,6 +20,7 @@ class PetsController < ApplicationController
         @pet = Pet.find(params[:id])
         if @pet
             if @pet.update(update_params)
+                @pet.save
                 render json: @pet, status: 200
             else 
                 render json: {error: "Validation errors"}, status: 422
