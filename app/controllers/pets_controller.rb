@@ -17,7 +17,7 @@ class PetsController < ApplicationController
     end
 
     def destroy
-        @pet = pet.find(params[:id])
+        @pet = pet.find_by(id: params[:id])
         @pet.destroy
     end
 
