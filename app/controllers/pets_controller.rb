@@ -19,7 +19,9 @@ class PetsController < ApplicationController
     def update
         @pet = Pet.find(params[:id])
         if @pet
-            if @pet.update(pet_params)
+            @pet.update(pet_params)
+            @pet.save
+            if @pet.save
                 render json: @pet, status: 200
             else 
                 render json: {error: "Validation errors"}, status: 422
@@ -45,6 +47,6 @@ class PetsController < ApplicationController
     end
 
     def update_params
-        params.permit(:name, :happiness, :health, :hunger, :thirst, :boredom)
+        params.permit(:happiness, :health, :hunger, :thirst, :boredom)
     end
 end
