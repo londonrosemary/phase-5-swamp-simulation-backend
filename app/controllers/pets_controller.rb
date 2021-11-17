@@ -31,6 +31,15 @@ class PetsController < ApplicationController
         end
     end
 
+    # def decrease
+    #     params.each do |eachPet|
+    #     byebug
+    #     @p = Pet.find_by(id: eachPet.id)
+    #     @p.update(eachPet)
+    #     render json: @p, status: 200
+    #     end
+    # end
+
     def destroy
         @pet = Pet.find_by(id: params[:id])
         @pet.destroy
@@ -47,6 +56,10 @@ class PetsController < ApplicationController
     end
 
     def update_params
-        params.permit(:happiness, :health, :hunger, :thirst, :boredom)
+        params.permit(:happiness, :health, :hunger, :thirst, :boredom, :id)
     end
+    
+    # def decrease_params
+    #     params.permit()
+    # end
 end
